@@ -31,8 +31,8 @@ jobs:
         run: dotnet tool install -g dotnet-format
       
 
-#       - name: Run Prettier
-#         run: prettier --check "**/*.ts" "**/*.tsx" "**/*.js" "**/*.jsx" "**/*.json" "**/*.css" "**/*.scss" "**/*.less" "**/*.graphql" "**/*.md"
+      - name: Run Prettier
+        run: prettier --check "**/*.cs"
 
       - name: Run .NET Format
         run: dotnet-format --check .
