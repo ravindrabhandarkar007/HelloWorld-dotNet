@@ -1,0 +1,43 @@
+name: Pre-commit Checks
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  pre-commit-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.x' # Replace with the appropriate .NET version
+
+      - name: Install Node.js and npm
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x' # Replace with the appropriate Node.js version
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Install Prettier
+        run: npm install -g prettier
+
+      - name: Install .NET Format tool
+        run: dotnet tool install -g dotnet-format
+      
+
+#       - name: Run Prettier
+#         run: prettier --check "**/*.ts" "**/*.tsx" "**/*.js" "**/*.jsx" "**/*.json" "**/*.css" "**/*.scss" "**/*.less" "**/*.graphql" "**/*.md"
+
+      - name: Run .NET Format
+        run: dotnet-format --check
+
+      # Add other steps to run the additional pre-commit checks as specified in precommit.yml
+
+      - name: Build and Run Roslyn Analyzers and StyleCop
+        run: dotnet build --no-restore /p:TreatWarningsAsErrors=true /p:RunAnalyzersDuringBuild=true /p:AnalyzeStyleCop=true
