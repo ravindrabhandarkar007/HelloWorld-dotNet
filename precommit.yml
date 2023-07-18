@@ -1,0 +1,48 @@
+repos:
+- repo: https://github.com/prettier/prettier
+  rev: main
+  hooks:
+    - id: prettier
+      args: ['--write']
+      files: '\.(ts|tsx|js|jsx|json|css|scss|less|graphql|md)$'
+
+- repo: local
+  hooks:
+    - id: dotnet-format
+      name: .NET Format
+      entry: dotnet
+      args:
+        - format
+        - --check
+        - --verbosity
+        - normal
+
+    - id: trailing-whitespace
+    - id: check-case-conflict
+    - id: check-merge-conflict
+    - id: check-yaml
+    - id: detect-private-key
+    - id: end-of-file-fixer
+    - id: fix-byte-order-marker
+    - id: mixed-line-ending
+    - id: requirements-txt-fixer
+
+    # Add Roslyn Analyzers and StyleCop checks
+    - id: roslyn-analyzers
+      name: Roslyn Analyzers
+      entry: dotnet
+      args:
+        - build
+        - --no-restore
+        - /p:TreatWarningsAsErrors=true
+        - /p:RunAnalyzersDuringBuild=true
+
+    - id: stylecop
+      name: StyleCop
+      entry: dotnet
+      args:
+        - build
+        - --no-restore
+        - /p:TreatWarningsAsErrors=true
+        - /p:RunAnalyzersDuringBuild=true
+        - /p:AnalyzeStyleCop=true
