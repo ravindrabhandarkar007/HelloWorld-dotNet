@@ -4,7 +4,7 @@ repos:
   hooks:
     - id: prettier
       args: ['--write']
-      files: '\.(ts|tsx|js|jsx|json|css|scss|less|graphql|md)$'
+      files: '\.(ts|tsx|js|jsx|json|css|scss|less|graphql|md)$' 
 
 - repo: local
   hooks:
