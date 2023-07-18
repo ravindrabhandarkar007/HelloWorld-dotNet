@@ -6,7 +6,7 @@ repos:
 #     #   args: ['--write']
 #     #   files: '\.(ts|tsx|js|jsx|json|css|scss|less|graphql|md)$' 
 
-- repo: local
+- repo: HelloWorld-dotNet
   hooks:
     - id: dotnet-format
       name: .NET Format
