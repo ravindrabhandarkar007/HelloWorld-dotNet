@@ -1,0 +1,8 @@
+<Project>
+  <PropertyGroup>
+    <!-- Example settings for dotnet-format -->
+    <IncludeFiles>**/*.cs</IncludeFiles>
+    <EnforceFixedResult>true</EnforceFixedResult>
+    <CheckDryRun Condition="'$(CONFIGURATION)' == 'Debug'">true</CheckDryRun>
+  </PropertyGroup>
+</Project>
