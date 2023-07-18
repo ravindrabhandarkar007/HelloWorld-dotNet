@@ -39,10 +39,16 @@ jobs:
 
 #       - name: Run .NET Format
 #         run: dotnet-format --check .
-        
+
       - name: Install pre-commit tool
-        run: pre-commit autoupdate
-      - uses: browniebroke/pre-commit-autoupdate-action@main
+        run: pip install pre-commit
+      - name: init pre-commit tool  
+        run: pre-commit init
+      - name: install 
+        run: pre-commit install  
+#       - name: Install pre-commit tool
+#         run: pre-commit autoupdate
+#       - uses: browniebroke/pre-commit-autoupdate-action@main
       - name: Run pre-commit checks
         run: pre-commit run --all-files
 
