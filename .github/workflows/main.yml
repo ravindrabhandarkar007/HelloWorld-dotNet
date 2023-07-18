@@ -3,7 +3,7 @@ name: Pre-commit Checks
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   pre-commit-checks:
