@@ -1,10 +1,10 @@
 repos:
-- repo: https://github.com/prettier/prettier
-  rev: main
-  hooks:
-    - id: prettier
-      args: ['--write']
-      files: '\.(ts|tsx|js|jsx|json|css|scss|less|graphql|md)$' 
+# - repo: https://github.com/prettier/prettier
+#   rev: main
+#   # hooks:
+#     # - id: prettier
+#     #   args: ['--write']
+#     #   files: '\.(ts|tsx|js|jsx|json|css|scss|less|graphql|md)$' 
 
 - repo: local
   hooks:
