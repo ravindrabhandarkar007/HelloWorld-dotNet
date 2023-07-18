@@ -41,7 +41,7 @@ jobs:
 #         run: dotnet-format --check .
         
       - name: Install pre-commit tool
-        run: pip install --update pre-commit
+        run: pre-commit autoupdate
 
       - name: Run pre-commit checks
         run: pre-commit run --all-files
