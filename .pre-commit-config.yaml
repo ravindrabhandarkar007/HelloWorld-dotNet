@@ -7,6 +7,7 @@ repos:
 #     #   files: '\.(ts|tsx|js|jsx|json|css|scss|less|graphql|md)$' 
 
 - repo: HelloWorld-dotNet
+  rev: master
   hooks:
     - id: dotnet-format
       name: .NET Format
