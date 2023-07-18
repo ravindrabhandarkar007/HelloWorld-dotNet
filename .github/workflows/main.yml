@@ -29,13 +29,18 @@ jobs:
 
       - name: Install .NET Format tool
         run: dotnet tool install -g dotnet-format
-      
+        
+      - name: Find all .cs files and run .NET Format on them
+        run: |
+          find . -type f -name "*.cs" -exec dotnet-format --check {} +
 
 #       - name: Run Prettier
 #         run: prettier --check "**/*.cs"
 
       - name: Run .NET Format
         run: dotnet-format --check .
+        
+
 
       # Add other steps to run the additional pre-commit checks as specified in precommit.yml
 
